@@ -7,4 +7,8 @@ target 'TouristHelper' do
 
   # Pods for TouristHelper
 
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'GoogleMaps'
+
 end

@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>TouristHelper wants to use your location to find attractions nearby</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>TouristHelper wants to use your location to find attractions nearby</string>
 </dict>
 </plist>

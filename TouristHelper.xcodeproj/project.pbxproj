@@ -19,6 +19,10 @@
 		2B69A8BC1F7B5CD90037CE4C /* BTouristListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B69A8BA1F7B5CD90037CE4C /* BTouristListViewController.xib */; };
 		2B69A8BF1F7B5CEE0037CE4C /* BSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69A8BD1F7B5CEE0037CE4C /* BSettingsViewController.swift */; };
 		2B69A8C01F7B5CEE0037CE4C /* BSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B69A8BE1F7B5CEE0037CE4C /* BSettingsViewController.xib */; };
+		2B69A8C21F7B71C60037CE4C /* BNearbyMapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69A8C11F7B71C60037CE4C /* BNearbyMapsManager.swift */; };
+		2BD7611F1F8201DB00DD69F1 /* icn_30_map@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD7611D1F82013000DD69F1 /* icn_30_map@3x.png */; };
+		2BD761201F8201DD00DD69F1 /* icn_30_mapList@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD7611E1F82013000DD69F1 /* icn_30_mapList@3x.png */; };
+		2BD761211F8201DF00DD69F1 /* icn_30_settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD7611C1F82013000DD69F1 /* icn_30_settings@3x.png */; };
 		D7056359F693987F0ACA1C6C /* Pods_TouristHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394B765A0A64D2BCDAA0DCAB /* Pods_TouristHelper.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +42,10 @@
 		2B69A8BA1F7B5CD90037CE4C /* BTouristListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTouristListViewController.xib; sourceTree = "<group>"; };
 		2B69A8BD1F7B5CEE0037CE4C /* BSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSettingsViewController.swift; sourceTree = "<group>"; };
 		2B69A8BE1F7B5CEE0037CE4C /* BSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BSettingsViewController.xib; sourceTree = "<group>"; };
+		2B69A8C11F7B71C60037CE4C /* BNearbyMapsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BNearbyMapsManager.swift; sourceTree = "<group>"; };
+		2BD7611C1F82013000DD69F1 /* icn_30_settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_30_settings@3x.png"; sourceTree = "<group>"; };
+		2BD7611D1F82013000DD69F1 /* icn_30_map@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_30_map@3x.png"; sourceTree = "<group>"; };
+		2BD7611E1F82013000DD69F1 /* icn_30_mapList@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_30_mapList@3x.png"; sourceTree = "<group>"; };
 		394B765A0A64D2BCDAA0DCAB /* Pods_TouristHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouristHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AE993A24A8FE15637609F7 /* Pods-TouristHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouristHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TouristHelper/Pods-TouristHelper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +85,7 @@
 			children = (
 				2B69A8A11F7B59920037CE4C /* AppDelegate.swift */,
 				2B69A8B71F7B5A9D0037CE4C /* BTabBarController.swift */,
+				2B69A8C11F7B71C60037CE4C /* BNearbyMapsManager.swift */,
 				2B69A8B31F7B59C50037CE4C /* BTouristMapViewViewViewController.swift */,
 				2B69A8B41F7B59C50037CE4C /* BTouristMapViewViewViewController.xib */,
 				2B69A8B91F7B5CD90037CE4C /* BTouristListViewController.swift */,
@@ -88,8 +97,19 @@
 				2B69A8A81F7B59920037CE4C /* Assets.xcassets */,
 				2B69A8AA1F7B59920037CE4C /* LaunchScreen.storyboard */,
 				2B69A8AD1F7B59920037CE4C /* Info.plist */,
+				2BD761181F8200BD00DD69F1 /* Resources */,
 			);
 			path = TouristHelper;
+			sourceTree = "<group>";
+		};
+		2BD761181F8200BD00DD69F1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2BD7611D1F82013000DD69F1 /* icn_30_map@3x.png */,
+				2BD7611E1F82013000DD69F1 /* icn_30_mapList@3x.png */,
+				2BD7611C1F82013000DD69F1 /* icn_30_settings@3x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		5C5641EF5ACDFB1C92DE7904 /* Frameworks */ = {
@@ -171,12 +191,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BD761201F8201DD00DD69F1 /* icn_30_mapList@3x.png in Resources */,
 				2B69A8AC1F7B59920037CE4C /* LaunchScreen.storyboard in Resources */,
 				2B69A8B61F7B59C50037CE4C /* BTouristMapViewViewViewController.xib in Resources */,
+				2BD7611F1F8201DB00DD69F1 /* icn_30_map@3x.png in Resources */,
 				2B69A8C01F7B5CEE0037CE4C /* BSettingsViewController.xib in Resources */,
 				2B69A8A91F7B59920037CE4C /* Assets.xcassets in Resources */,
 				2B69A8A71F7B59920037CE4C /* Main.storyboard in Resources */,
 				2B69A8BC1F7B5CD90037CE4C /* BTouristListViewController.xib in Resources */,
+				2BD761211F8201DF00DD69F1 /* icn_30_settings@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +230,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TouristHelper/Pods-TouristHelper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/QuadratTouch/QuadratTouch.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuadratTouch.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -222,9 +248,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TouristHelper/Pods-TouristHelper-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -240,6 +271,7 @@
 			files = (
 				2B69A8BB1F7B5CD90037CE4C /* BTouristListViewController.swift in Sources */,
 				2B69A8B81F7B5A9D0037CE4C /* BTabBarController.swift in Sources */,
+				2B69A8C21F7B71C60037CE4C /* BNearbyMapsManager.swift in Sources */,
 				2B69A8A41F7B59920037CE4C /* ViewController.swift in Sources */,
 				2B69A8B51F7B59C50037CE4C /* BTouristMapViewViewViewController.swift in Sources */,
 				2B69A8BF1F7B5CEE0037CE4C /* BSettingsViewController.swift in Sources */,

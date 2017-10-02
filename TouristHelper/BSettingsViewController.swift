@@ -18,6 +18,7 @@ class BSettingsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         self.title = "Settings"
+        self.tabBarItem.image = UIImage(named: "icn_30_settings.png")
     }
     
     override func viewDidLoad() {

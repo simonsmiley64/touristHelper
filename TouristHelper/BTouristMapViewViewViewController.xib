@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BTouristMapViewViewViewController" customModule="TouristHelper" customModuleProvider="target">
             <connections>
+                <outlet property="locationLabel" destination="Nvb-OF-V3f" id="KF8-h8-luB"/>
+                <outlet property="mapView" destination="rTj-5I-SHs" id="IUd-vQ-uyT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,11 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFw-eT-JmJ">
-                    <rect key="frame" x="170" y="323" width="34" height="21"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTj-5I-SHs" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvb-OF-V3f">
+                    <rect key="frame" x="0.0" y="20" width="375" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="esQ-Vr-Vkl"/>
-                        <constraint firstAttribute="width" constant="34" id="f1w-1P-SeV"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="9f5-CC-0pt"/>
+                        <constraint firstAttribute="height" constant="60" id="H1h-Ia-Od5"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -32,10 +39,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="FFw-eT-JmJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="AzW-Us-Uau"/>
-                <constraint firstItem="FFw-eT-JmJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bAg-H6-L3x"/>
+                <constraint firstItem="Nvb-OF-V3f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Hhs-qN-Yep"/>
+                <constraint firstItem="rTj-5I-SHs" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="IC2-LP-fiS"/>
+                <constraint firstItem="Nvb-OF-V3f" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="JAX-j4-UTH"/>
+                <constraint firstItem="rTj-5I-SHs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MZg-8d-i4b"/>
+                <constraint firstItem="rTj-5I-SHs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Pqm-0j-lBG"/>
+                <constraint firstItem="Nvb-OF-V3f" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="mAS-N5-0Ox"/>
+                <constraint firstItem="rTj-5I-SHs" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="tHM-he-2PX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
 </document>
