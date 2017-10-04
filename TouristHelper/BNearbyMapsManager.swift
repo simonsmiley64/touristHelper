@@ -61,9 +61,7 @@ class BNearbyMapsManager: NSObject {
         self.getAllNearbyLocations(url: url!)
     }
     
-    // This function loops over the returned JSON until we have recevied all the info
-    //func getAllNearbyLocations(url: URL, completion: ((NSArray) -> ())?) {
-        
+    // This function loops over the returned JSON until we have recevied all the info        
     func getAllNearbyLocations(url: URL) {
         
         self.getJsonFromURL(url: url) { (dictionary) in

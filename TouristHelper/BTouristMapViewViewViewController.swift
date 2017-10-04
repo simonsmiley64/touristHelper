@@ -243,6 +243,14 @@ extension BTouristMapViewViewViewController: CLLocationManagerDelegate {
             mapView.isMyLocationEnabled = true
             mapView.settings.myLocationButton = true
         }
+        else {
+            
+            // This occurs if the user presses the button before our locations have been retreived
+            let alert = UIAlertController(title: "Oh no", message: "We can't show you nearby locations if we don't know where you are! Go into settings to change your location services to get the most out of this app", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
