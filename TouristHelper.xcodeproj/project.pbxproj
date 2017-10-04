@@ -23,7 +23,7 @@
 		2BD7611F1F8201DB00DD69F1 /* icn_30_map@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD7611D1F82013000DD69F1 /* icn_30_map@3x.png */; };
 		2BD761201F8201DD00DD69F1 /* icn_30_mapList@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD7611E1F82013000DD69F1 /* icn_30_mapList@3x.png */; };
 		2BD761211F8201DF00DD69F1 /* icn_30_settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD7611C1F82013000DD69F1 /* icn_30_settings@3x.png */; };
-		D7056359F693987F0ACA1C6C /* Pods_TouristHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 394B765A0A64D2BCDAA0DCAB /* Pods_TouristHelper.framework */; };
+		4F930F48C8997F9710634BAD /* libPods-TouristHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B43621D7C244A3CC7838F76 /* libPods-TouristHelper.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,10 +43,11 @@
 		2B69A8BD1F7B5CEE0037CE4C /* BSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSettingsViewController.swift; sourceTree = "<group>"; };
 		2B69A8BE1F7B5CEE0037CE4C /* BSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BSettingsViewController.xib; sourceTree = "<group>"; };
 		2B69A8C11F7B71C60037CE4C /* BNearbyMapsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BNearbyMapsManager.swift; sourceTree = "<group>"; };
+		2B847EF01F836AC1006D89C7 /* TouristHelper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TouristHelper-Bridging-Header.h"; sourceTree = "<group>"; };
 		2BD7611C1F82013000DD69F1 /* icn_30_settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_30_settings@3x.png"; sourceTree = "<group>"; };
 		2BD7611D1F82013000DD69F1 /* icn_30_map@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_30_map@3x.png"; sourceTree = "<group>"; };
 		2BD7611E1F82013000DD69F1 /* icn_30_mapList@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_30_mapList@3x.png"; sourceTree = "<group>"; };
-		394B765A0A64D2BCDAA0DCAB /* Pods_TouristHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouristHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B43621D7C244A3CC7838F76 /* libPods-TouristHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouristHelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AE993A24A8FE15637609F7 /* Pods-TouristHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouristHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TouristHelper/Pods-TouristHelper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7056359F693987F0ACA1C6C /* Pods_TouristHelper.framework in Frameworks */,
+				4F930F48C8997F9710634BAD /* libPods-TouristHelper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +99,7 @@
 				2B69A8AA1F7B59920037CE4C /* LaunchScreen.storyboard */,
 				2B69A8AD1F7B59920037CE4C /* Info.plist */,
 				2BD761181F8200BD00DD69F1 /* Resources */,
+				2B847EF01F836AC1006D89C7 /* TouristHelper-Bridging-Header.h */,
 			);
 			path = TouristHelper;
 			sourceTree = "<group>";
@@ -115,7 +117,7 @@
 		5C5641EF5ACDFB1C92DE7904 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				394B765A0A64D2BCDAA0DCAB /* Pods_TouristHelper.framework */,
+				6B43621D7C244A3CC7838F76 /* libPods-TouristHelper.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,6 +166,7 @@
 				TargetAttributes = {
 					2B69A89D1F7B59920037CE4C = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -231,11 +234,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TouristHelper/Pods-TouristHelper-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/QuadratTouch/QuadratTouch.framework",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuadratTouch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -413,12 +416,15 @@
 			baseConfigurationReference = B4AE993A24A8FE15637609F7 /* Pods-TouristHelper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 648G6J36QZ;
 				INFOPLIST_FILE = TouristHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.turtle.TouristHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TouristHelper/TouristHelper-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -429,12 +435,14 @@
 			baseConfigurationReference = 000C7071A045A5FEF21370B3 /* Pods-TouristHelper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 648G6J36QZ;
 				INFOPLIST_FILE = TouristHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.turtle.TouristHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TouristHelper/TouristHelper-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

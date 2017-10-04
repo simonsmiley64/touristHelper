@@ -31,9 +31,9 @@ class BNearbyMapsManager: NSObject {
         return singleton.instance
     }
     
-    func sendNewLocations(newLocations: NSArray) {
-        if delegate != nil && newLocations.count > 0 {
-            delegate?.returnNewLocations(locations: newLocations)
+    func sendNewLocations(locations: NSArray) {
+        if delegate != nil && locations.count > 0 {
+            delegate?.returnNewLocations(locations: locations)
         }
     }
     
@@ -64,12 +64,16 @@ class BNearbyMapsManager: NSObject {
         
         self.getJsonFromURL(url: url) { (dictionary) in
             
+            print("Added")
+            
             let newLocations: NSArray = dictionary.value(forKey: "results") as! NSArray
             self.locations.addObjects(from: newLocations as! [Any])
             
+            print("Set")
+            
             // TODO Remove this check
             if self.locations.count >= 60 {
-                self.sendNewLocations(newLocations: self.locations)
+                //self.sendNewLocations(locations: self.locations)
             }
             else {
                 
@@ -85,7 +89,7 @@ class BNearbyMapsManager: NSObject {
                 else {
                     
                     // If we have no more pages then we return what we have
-                    self.sendNewLocations(newLocations: self.locations)
+                    //self.sendNewLocations(locations: self.locations)
                 }
             }
         }
@@ -102,8 +106,13 @@ class BNearbyMapsManager: NSObject {
             else {
                 if let content = data {
                     do {
-                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        completionHandler(myJson as! NSDictionary)
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+                        
+                        let newLocations: NSArray = myJson.value(forKey: "results") as! NSArray
+                        self.sendNewLocations(locations: newLocations)
+                        
+                        
+                        completionHandler(myJson)
                     }
                     catch {
                         print("error")
@@ -111,6 +120,8 @@ class BNearbyMapsManager: NSObject {
                 }
             }
         }
+        
+        
         
         task.resume()
     }
