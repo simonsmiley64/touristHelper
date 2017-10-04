@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BTouristMapViewViewViewController" customModule="TouristHelper" customModuleProvider="target">
             <connections>
                 <outlet property="locationLabel" destination="Nvb-OF-V3f" id="KF8-h8-luB"/>
+                <outlet property="mapRouteButton" destination="EeE-Bu-22C" id="eo4-aX-Uce"/>
                 <outlet property="mapView" destination="rTj-5I-SHs" id="IUd-vQ-uyT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -36,6 +37,23 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeE-Bu-22C">
+                    <rect key="frame" x="311" y="92" width="52" height="52"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="52" id="Hl1-Tr-GcZ"/>
+                        <constraint firstAttribute="height" constant="52" id="jZ4-EV-grR"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="icn_52_route.png"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="26"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="mapRouteButtonPressedWithSender:" destination="-1" eventType="touchUpInside" id="8nK-r4-RLb"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -43,12 +61,17 @@
                 <constraint firstItem="rTj-5I-SHs" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="IC2-LP-fiS"/>
                 <constraint firstItem="Nvb-OF-V3f" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="JAX-j4-UTH"/>
                 <constraint firstItem="rTj-5I-SHs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MZg-8d-i4b"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EeE-Bu-22C" secondAttribute="trailing" constant="12" id="Otg-Sg-KUK"/>
                 <constraint firstItem="rTj-5I-SHs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Pqm-0j-lBG"/>
                 <constraint firstItem="Nvb-OF-V3f" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="mAS-N5-0Ox"/>
                 <constraint firstItem="rTj-5I-SHs" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="tHM-he-2PX"/>
+                <constraint firstItem="EeE-Bu-22C" firstAttribute="top" secondItem="Nvb-OF-V3f" secondAttribute="bottom" constant="12" id="tTZ-jn-6xl"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icn_52_route.png" width="52" height="52"/>
+    </resources>
 </document>

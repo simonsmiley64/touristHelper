@@ -27,8 +27,7 @@ class BTouristMapViewViewViewController: UIViewController, newLocationsDelegate 
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet weak var locationLabel: UILabel!
     
-    // Decide how large a radius we want to look into
-    let regionRadius: CLLocationDistance = 1000
+    @IBOutlet weak var mapRouteButton: UIButton!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -37,7 +36,6 @@ class BTouristMapViewViewViewController: UIViewController, newLocationsDelegate 
     init() {
         super.init(nibName: nil, bundle: nil)
         self.title = "Tourist Map"
-        self.navigationController?.title = self.title
         self.tabBarItem.image = UIImage(named: "icn_30_map.png")
     }
     
@@ -60,6 +58,15 @@ class BTouristMapViewViewViewController: UIViewController, newLocationsDelegate 
         
         // Only show the location label if we know our current location and address
         self.updateLocationLabel(text: "")
+        
+        // Customise the map route toggle button
+        mapRouteButton.layer.borderWidth = 0.5
+        mapRouteButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        mapRouteButton.layer.shadowColor = UIColor.black.cgColor
+        mapRouteButton.layer.shadowOffset = CGSize(width: 1, height: 1)
+        mapRouteButton.layer.shadowRadius = 2
+        mapRouteButton.layer.shadowOpacity = 0.7
     }
     
     // This is a delegate method for returning new locations from the NearbyMapsManager
@@ -101,22 +108,22 @@ class BTouristMapViewViewViewController: UIViewController, newLocationsDelegate 
         mapRouteLine.map = nil
 
         if locationCoordinates.count != 0 {
-
+            
             locationCoordinates = self.filterLocationArray(locationCoordinates: locationCoordinates)
-            
+
             let path = GMSMutablePath()
-            
+
             // First we want to add a path from our current location
             path.add(currentLocation.coordinate)
-            
+
             for i in 0 ... locationCoordinates.count - 1 {
                 let location = locationCoordinates[i] as! CLLocationCoordinate2D
                 path.add(location)
             }
-            
+
             // Finally we want to finish in our current location
             path.add(currentLocation.coordinate)
-            
+
             mapRouteLine = GMSPolyline(path: path)
             mapRouteLine.map = mapView
         }
@@ -195,6 +202,34 @@ class BTouristMapViewViewViewController: UIViewController, newLocationsDelegate 
             }
         }
     }
+    
+    @IBAction func mapRouteButtonPressed(sender: UIButton) {
+        
+        // We want to check if the map is being shown if not then we add it and update the background image
+        if mapRouteLine.map != nil {
+            // This means we currently have a map route - we remove it and change the icon
+            
+            mapRouteLine.map = nil
+            mapRouteButton.setBackgroundImage(UIImage.init(named: "icn_52_route.png"), for: .normal)
+        }
+        else {
+            
+            if locationCoordinates.count == 0 {
+                
+                // This occurs if the user presses the button before our locations have been retreived
+                let alert = UIAlertController(title: "Careful", message: "We can't show the map before the locatons have been retreived", preferredStyle: .alert)
+            
+                alert.addAction(UIAlertAction(title: "Ok, sorry", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            else {
+
+                self.plotPathBetweenLocations(locations: locationCoordinates)
+                mapRouteButton.setBackgroundImage(UIImage.init(named: "icn_52_noRoute.png"), for: .normal)
+            }
+        }
+    }
 }
 
 extension BTouristMapViewViewViewController: CLLocationManagerDelegate {
@@ -223,9 +258,13 @@ extension BTouristMapViewViewViewController: CLLocationManagerDelegate {
                 previousLocation = location
                 currentLocation = location
                 
+                mapView.animate(toLocation: location.coordinate)
+                
                 self.updateNearbyLocations(currentLocation: location)
             }
             
+            // We want a previous location variable as we don't want to update the nearby locations regularly
+            // If the user doesn't move far away enough there is no point
             if currentLocation.distance(from: previousLocation) > 100 {
              
                 previousLocation = currentLocation
@@ -245,40 +284,31 @@ extension BTouristMapViewViewViewController: GMSMapViewDelegate {
         
         reverseGeocodeCoordinate(coordinate: position.target)
     }
-    
-    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
-        print("Dragged")
-    }
-    
-    
 }
 
 
-// Fancy map stuff I can use
+// Addition map functionality to potentially use
 
 // Set the camera position of the map
-//        let sydney = GMSCameraPosition.camera(withLatitude: -33.8683, longitude: 151.2086, zoom: 6)
-//        mapView.camera = sydney
+// let sydney = GMSCameraPosition.camera(withLatitude: -33.8683, longitude: 151.2086, zoom: 6)
+// mapView.camera = sydney
 
 // Change viewing angle:
 //mapView.animate(toViewingAngle: 45)
 
-//        let fancy = GMSCameraPosition.camera(withLatitude: -33,
+// let fancy = GMSCameraPosition.camera(withLatitude: -33,
 //                                             longitude: 151,
 //                                             zoom: 6,
 //                                             bearing: 270,
 //                                             viewingAngle: 45)
 //
-//        mapView.camera = fancy
+// mapView.camera = fancy
 
-//        let camera = GMSCameraPosition.camera(withLatitude: -33.8683, longitude: 151.2086, zoom: 16)
-//        mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
-
-
+// let camera = GMSCameraPosition.camera(withLatitude: -33.8683, longitude: 151.2086, zoom: 16)
+// mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
 
 // Animate to a specific location - we could always use a search feature to add that in?
 //mapView.animate(toLocation: CLLocationCoordinate2D(latitude: -33.868, longitude: 151.208))
-
 
 // Zooming in and out
 //mapView.animate(toZoom: 12)
@@ -294,10 +324,8 @@ extension BTouristMapViewViewViewController: GMSMapViewDelegate {
 //        mapView.camera = camera
 
 
-
 // Good info on drawing on the map etc
 // https://developers.google.com/maps/documentation/ios-sdk/views
-
 
 //        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
 //        self.centreMapToLocation(location: initialLocation)

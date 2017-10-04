@@ -26,7 +26,23 @@ class BTouristListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "bCell")
+        let nib = UINib(nibName: "BLocationCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "bCellIdentifier")
+        
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "BLocationCell")
+//        tableView.register(UINib.init(), forCellReuseIdentifier: "BLocationCell")
+        
+//        tableView.register(BLocationCell.classForCoder(), forCellReuseIdentifier: "BLocationCell")
+//        tableView.register(BLocationCell.self, forCellReuseIdentifier: "BLocationCell")
+        
+        //tableView.register(UINib.init(nibName: "BLocationCell", bundle: nil), forCellReuseIdentifier: "BLocationCell")
+        //tableView.registerNib(UINib(nibName: "CustomOneCell", bundle: nil), forCellReuseIdentifier: "CustomCellOne")
+
+        //self.tableView.register(BLocationCell.self, forCellReuseIdentifier: "Cell")
+        
+        //tableView.register(CustomTableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
+        
+        //tableView.registerClass(BLocationCell.self, forCellReuseIdentifier: NSStringFromClass(BLocationCell))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,10 +51,28 @@ class BTouristListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "bCell")
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BLocationCell
+
+//        let cell = Bundle.main.loadNibNamed("BLocationCell", owner: self, options: nil)?.first as! BLocationCell
         
-        cell?.textLabel?.text = "Hello World"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bCellIdentifier", for: indexPath) as! BLocationCell
         
-        return cell!
+        return cell
+        
+
+        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "bCell")
+//
+//        cell?.textLabel?.text = "Hello World"
+//
+//        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 }

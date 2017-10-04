@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
 
 protocol newLocationsDelegate {
     
@@ -20,6 +21,11 @@ class BNearbyMapsManager: NSObject {
     var delegate: newLocationsDelegate? = nil
     
     var locations = NSMutableArray()
+    
+    var searchTask = URLSessionDataTask()
+    
+    // Decide how large a radius we want to look into
+    let regionRadius: CLLocationDistance = 1000
     
     // We want to have access to the root search URL so we can add new pages onto it
     var rootSearchURL = String()
@@ -37,24 +43,22 @@ class BNearbyMapsManager: NSObject {
         }
     }
     
-    public func getNearbyLocationsWithLocation(location: CLLocation) -> NSArray {
+    public func getNearbyLocationsWithLocation(location: CLLocation) {
         
-        //let urlString : String = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDcsfSjTpEFHt_tUSHoqnVzPocXsP8qB00&location=49.26,-123.11&radius=1000"
-
         let urlString : String = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDcsfSjTpEFHt_tUSHoqnVzPocXsP8qB00&location="
         
         let latitude:String = "\(location.coordinate.latitude)"
         let longitude:String = "\(location.coordinate.longitude)"
         
-        let newString = urlString + latitude + "," + longitude + "&radius=1000"
+        let radius = String(regionRadius)
+        
+        let newString = urlString + latitude + "," + longitude + "&radius=" + radius
         
         rootSearchURL = newString
         
         let url = URL(string: newString)
 
         self.getAllNearbyLocations(url: url!)
-        
-        return []
     }
     
     // This function loops over the returned JSON until we have recevied all the info
@@ -64,16 +68,12 @@ class BNearbyMapsManager: NSObject {
         
         self.getJsonFromURL(url: url) { (dictionary) in
             
-            print("Added")
-            
             let newLocations: NSArray = dictionary.value(forKey: "results") as! NSArray
             self.locations.addObjects(from: newLocations as! [Any])
             
-            print("Set")
-            
             // TODO Remove this check
             if self.locations.count >= 60 {
-                //self.sendNewLocations(locations: self.locations)
+                self.sendNewLocations(locations: self.locations)
             }
             else {
                 
@@ -83,13 +83,16 @@ class BNearbyMapsManager: NSObject {
                     let newURL = self.rootSearchURL + "&pagetoken=" + (newPageToken as! String)
                     let url = URL(string: newURL)
                     
-                    // We want to get our current URL and remove the last characters from it
-                    self.getAllNearbyLocations(url: url!)
+                    // There is a delay between making a request and the next page URL being available - we need to wait for this request
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                        // We want to get our current URL and remove the last characters from it
+                        self.getAllNearbyLocations(url: url!)
+                    }
                 }
                 else {
                     
                     // If we have no more pages then we return what we have
-                    //self.sendNewLocations(locations: self.locations)
+                    self.sendNewLocations(locations: self.locations)
                 }
             }
         }
@@ -98,31 +101,11 @@ class BNearbyMapsManager: NSObject {
     // This function returns the JSON from a specific URL
     func getJsonFromURL(url: URL, completionHandler: @escaping (NSDictionary) -> ()) {
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        Alamofire.request(url).responseJSON { response in
             
-            if error != nil {
-                print("error")
-            }
-            else {
-                if let content = data {
-                    do {
-                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-                        
-                        let newLocations: NSArray = myJson.value(forKey: "results") as! NSArray
-                        self.sendNewLocations(locations: newLocations)
-                        
-                        
-                        completionHandler(myJson)
-                    }
-                    catch {
-                        print("error")
-                    }
-                }
-            }
+            let json = response.result.value as! NSDictionary
+            
+            completionHandler(json)
         }
-        
-        
-        
-        task.resume()
     }
 }

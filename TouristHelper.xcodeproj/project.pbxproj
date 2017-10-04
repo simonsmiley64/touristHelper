@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B2F034FDD10765BFE096953 /* Pods_TouristHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3203078F2B3D9B55190FB0C /* Pods_TouristHelper.framework */; };
+		2B37F77E1F84B7F6009C48FE /* BLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B37F77C1F84B7F6009C48FE /* BLocationCell.swift */; };
+		2B37F77F1F84B7F6009C48FE /* BLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B37F77D1F84B7F6009C48FE /* BLocationCell.xib */; };
+		2B37F7811F8595FA009C48FE /* icn_52_route@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B37F7801F8595F1009C48FE /* icn_52_route@3x.png */; };
+		2B37F7831F85972B009C48FE /* icn_52_noRoute@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B37F7821F859724009C48FE /* icn_52_noRoute@3x.png */; };
 		2B69A8A21F7B59920037CE4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69A8A11F7B59920037CE4C /* AppDelegate.swift */; };
-		2B69A8A41F7B59920037CE4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69A8A31F7B59920037CE4C /* ViewController.swift */; };
 		2B69A8A71F7B59920037CE4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B69A8A51F7B59920037CE4C /* Main.storyboard */; };
 		2B69A8A91F7B59920037CE4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B69A8A81F7B59920037CE4C /* Assets.xcassets */; };
 		2B69A8AC1F7B59920037CE4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B69A8AA1F7B59920037CE4C /* LaunchScreen.storyboard */; };
@@ -23,14 +27,16 @@
 		2BD7611F1F8201DB00DD69F1 /* icn_30_map@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD7611D1F82013000DD69F1 /* icn_30_map@3x.png */; };
 		2BD761201F8201DD00DD69F1 /* icn_30_mapList@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD7611E1F82013000DD69F1 /* icn_30_mapList@3x.png */; };
 		2BD761211F8201DF00DD69F1 /* icn_30_settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD7611C1F82013000DD69F1 /* icn_30_settings@3x.png */; };
-		4F930F48C8997F9710634BAD /* libPods-TouristHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B43621D7C244A3CC7838F76 /* libPods-TouristHelper.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		000C7071A045A5FEF21370B3 /* Pods-TouristHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouristHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-TouristHelper/Pods-TouristHelper.release.xcconfig"; sourceTree = "<group>"; };
+		2B37F77C1F84B7F6009C48FE /* BLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLocationCell.swift; sourceTree = "<group>"; };
+		2B37F77D1F84B7F6009C48FE /* BLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BLocationCell.xib; sourceTree = "<group>"; };
+		2B37F7801F8595F1009C48FE /* icn_52_route@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_52_route@3x.png"; sourceTree = "<group>"; };
+		2B37F7821F859724009C48FE /* icn_52_noRoute@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_52_noRoute@3x.png"; sourceTree = "<group>"; };
 		2B69A89E1F7B59920037CE4C /* TouristHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouristHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B69A8A11F7B59920037CE4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2B69A8A31F7B59920037CE4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B69A8A61F7B59920037CE4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B69A8A81F7B59920037CE4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B69A8AB1F7B59920037CE4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,7 +53,7 @@
 		2BD7611C1F82013000DD69F1 /* icn_30_settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_30_settings@3x.png"; sourceTree = "<group>"; };
 		2BD7611D1F82013000DD69F1 /* icn_30_map@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_30_map@3x.png"; sourceTree = "<group>"; };
 		2BD7611E1F82013000DD69F1 /* icn_30_mapList@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icn_30_mapList@3x.png"; sourceTree = "<group>"; };
-		6B43621D7C244A3CC7838F76 /* libPods-TouristHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TouristHelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3203078F2B3D9B55190FB0C /* Pods_TouristHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouristHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AE993A24A8FE15637609F7 /* Pods-TouristHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouristHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TouristHelper/Pods-TouristHelper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F930F48C8997F9710634BAD /* libPods-TouristHelper.a in Frameworks */,
+				2B2F034FDD10765BFE096953 /* Pods_TouristHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +99,8 @@
 				2B69A8BA1F7B5CD90037CE4C /* BTouristListViewController.xib */,
 				2B69A8BD1F7B5CEE0037CE4C /* BSettingsViewController.swift */,
 				2B69A8BE1F7B5CEE0037CE4C /* BSettingsViewController.xib */,
-				2B69A8A31F7B59920037CE4C /* ViewController.swift */,
+				2B37F77C1F84B7F6009C48FE /* BLocationCell.swift */,
+				2B37F77D1F84B7F6009C48FE /* BLocationCell.xib */,
 				2B69A8A51F7B59920037CE4C /* Main.storyboard */,
 				2B69A8A81F7B59920037CE4C /* Assets.xcassets */,
 				2B69A8AA1F7B59920037CE4C /* LaunchScreen.storyboard */,
@@ -107,6 +114,8 @@
 		2BD761181F8200BD00DD69F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2B37F7821F859724009C48FE /* icn_52_noRoute@3x.png */,
+				2B37F7801F8595F1009C48FE /* icn_52_route@3x.png */,
 				2BD7611D1F82013000DD69F1 /* icn_30_map@3x.png */,
 				2BD7611E1F82013000DD69F1 /* icn_30_mapList@3x.png */,
 				2BD7611C1F82013000DD69F1 /* icn_30_settings@3x.png */,
@@ -117,7 +126,7 @@
 		5C5641EF5ACDFB1C92DE7904 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6B43621D7C244A3CC7838F76 /* libPods-TouristHelper.a */,
+				B3203078F2B3D9B55190FB0C /* Pods_TouristHelper.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,11 +207,14 @@
 				2B69A8AC1F7B59920037CE4C /* LaunchScreen.storyboard in Resources */,
 				2B69A8B61F7B59C50037CE4C /* BTouristMapViewViewViewController.xib in Resources */,
 				2BD7611F1F8201DB00DD69F1 /* icn_30_map@3x.png in Resources */,
+				2B37F7811F8595FA009C48FE /* icn_52_route@3x.png in Resources */,
 				2B69A8C01F7B5CEE0037CE4C /* BSettingsViewController.xib in Resources */,
 				2B69A8A91F7B59920037CE4C /* Assets.xcassets in Resources */,
 				2B69A8A71F7B59920037CE4C /* Main.storyboard in Resources */,
 				2B69A8BC1F7B5CD90037CE4C /* BTouristListViewController.xib in Resources */,
 				2BD761211F8201DF00DD69F1 /* icn_30_settings@3x.png in Resources */,
+				2B37F7831F85972B009C48FE /* icn_52_noRoute@3x.png in Resources */,
+				2B37F77F1F84B7F6009C48FE /* BLocationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,11 +246,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TouristHelper/Pods-TouristHelper-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -273,9 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B69A8BB1F7B5CD90037CE4C /* BTouristListViewController.swift in Sources */,
+				2B37F77E1F84B7F6009C48FE /* BLocationCell.swift in Sources */,
 				2B69A8B81F7B5A9D0037CE4C /* BTabBarController.swift in Sources */,
 				2B69A8C21F7B71C60037CE4C /* BNearbyMapsManager.swift in Sources */,
-				2B69A8A41F7B59920037CE4C /* ViewController.swift in Sources */,
 				2B69A8B51F7B59C50037CE4C /* BTouristMapViewViewViewController.swift in Sources */,
 				2B69A8BF1F7B5CEE0037CE4C /* BSettingsViewController.swift in Sources */,
 				2B69A8A21F7B59920037CE4C /* AppDelegate.swift in Sources */,
@@ -426,7 +438,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "TouristHelper/TouristHelper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -444,7 +456,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TouristHelper/TouristHelper-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

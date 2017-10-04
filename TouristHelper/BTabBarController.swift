@@ -24,9 +24,14 @@ class BTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         
         let touristMapVC = BTouristMapViewViewViewController()
-        let touristListVC = BTouristListViewController()
-        let settingsVC = BSettingsViewController()
         
-        self.viewControllers = [touristMapVC, touristListVC, settingsVC];
+        // Additional tabs to increase functionality
+//        let touristListVC = BTouristListViewController()
+//        let settingsVC = BSettingsViewController()
+        
+//        self.viewControllers = [touristMapVC, touristListVC, settingsVC];
+        self.viewControllers = [touristMapVC];
+        
+        self.title = "Tourist Helper"
     }
 }
